@@ -39,7 +39,6 @@ class Scrape
     private function getProducts(Crawler $products): void
     {
         foreach ($products as $product) {
-            $this->productCount++;
             try {
                 $productCrawler = new Crawler($product);
 
@@ -92,8 +91,6 @@ class Scrape
                 }
 
                 foreach ($colours as $colour) {
-                    $this->colorCount++;
-
                     $prod = new Product();
                     $prod->setTitle($title);
                     $prod->setPrice($priceFloat);
