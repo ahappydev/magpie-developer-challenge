@@ -24,8 +24,8 @@ class Scrape
         $pageCount = count($pages);
         $this->getProducts($products);
 
-        for ($i = 2; $i <= $pageCount; $i++) {
-            $document = ScrapeHelper::fetchDocument(self::PRODUCTS_URL."?page=".$i);
+        for ($page = 2; $page <= $pageCount; $page++) {
+            $document = ScrapeHelper::fetchDocument(self::PRODUCTS_URL."?page=".$page);
             $products = $document->filter('.product');
             $this->getProducts($products);
         }
