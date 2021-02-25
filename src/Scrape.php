@@ -11,8 +11,7 @@ class Scrape
 {
     private array $products = [];
 
-    public int $colorCount = 0;
-    public int $productCount = 0;
+    const MB_IN_GB = 1000;
 
     const PRODUCTS_URL = 'https://www.magpiehq.com/developer-challenge/smartphones/';
 
@@ -60,7 +59,7 @@ class Scrape
 
                 // Convert capacity to MB if GB
                 if (strpos($capacityText, 'GB') !== false) {
-                    $capacityMB = $capacityInt * 1000;
+                    $capacityMB = $capacityInt * self::MB_IN_GB;
                 } else {
                     $capacityMB = $capacityInt;
                 }
